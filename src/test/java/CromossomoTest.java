@@ -10,7 +10,7 @@ public class CromossomoTest {
         Cromossomo a = new Cromossomo(x,y);
 
         String valorRecebido = a.toString();
-        String valorEsperado = new String("001000");
+        String valorEsperado = "001000";
 
         Assert.assertEquals(valorEsperado, valorRecebido);
     }
@@ -23,7 +23,7 @@ public class CromossomoTest {
         Cromossomo a = new Cromossomo(x,y);
 
         String valorRecebido = a.toString();
-        String valorEsperado = new String("010000");
+        String valorEsperado = "010000";
 
         Assert.assertEquals(valorEsperado, valorRecebido);
     }
@@ -36,7 +36,7 @@ public class CromossomoTest {
         Cromossomo a = new Cromossomo(x,y);
 
         String valorRecebido = a.toString();
-        String valorEsperado = new String("011000");
+        String valorEsperado = "011000";
 
         Assert.assertEquals(valorEsperado, valorRecebido);
     }
@@ -49,7 +49,7 @@ public class CromossomoTest {
         Cromossomo a = new Cromossomo(x,y);
 
         String valorRecebido = a.toString();
-        String valorEsperado = new String("100000");
+        String valorEsperado = "100000";
 
         Assert.assertEquals(valorEsperado, valorRecebido);
     }
@@ -62,7 +62,7 @@ public class CromossomoTest {
         Cromossomo a = new Cromossomo(x,y);
 
         String valorRecebido = a.toString();
-        String valorEsperado = new String("101000");
+        String valorEsperado = "101000";
 
         Assert.assertEquals(valorEsperado, valorRecebido);
     }
@@ -75,7 +75,7 @@ public class CromossomoTest {
         Cromossomo a = new Cromossomo(x,y);
 
         String valorRecebido = a.toString();
-        String valorEsperado = new String("110000");
+        String valorEsperado = "110000";
 
         Assert.assertEquals(valorEsperado, valorRecebido);
     }
@@ -88,7 +88,7 @@ public class CromossomoTest {
         Cromossomo a = new Cromossomo(x,y);
 
         String valorRecebido = a.toString();
-        String valorEsperado = new String("111000");
+        String valorEsperado = "111000";
 
         Assert.assertEquals(valorEsperado, valorRecebido);
     }
