@@ -92,5 +92,63 @@ public class CromossomoTest {
 
         Assert.assertEquals(valorEsperado, valorRecebido);
     }
+
+    @Test
+    public void VerificaBinarioQuandoAlteraGene(){
+        int x = 2;
+        int y = 2;
+
+        Cromossomo a = new Cromossomo(x,y);
+
+        a.setX((new int[]{1,1,1}));
+
+        String valorRecebido = a.toString();
+        String valorEsperado = "111010";
+
+        Assert.assertEquals(valorEsperado, valorRecebido);
+    }
+
+    @Test
+    public void VerificaAtulizacaoDeGenesQuandoAlteraBinarioX(){
+        int x = 2;
+        int y = 2;
+
+        Cromossomo a = new Cromossomo(x,y);
+
+        a.setX((new int[]{1,0,1}));
+
+        int valorEsperado = 5;
+        int valorRecebido = a.getX_decimal();
+
+        Assert.assertEquals(valorEsperado, valorRecebido);
+    }
+
+    @Test
+    public void VerificaAtulizacaoDeGenesQuandoAlteraBinarioY(){
+        int x = 2;
+        int y = 2;
+
+        Cromossomo a = new Cromossomo(x,y);
+
+        a.setY((new int[]{1,0,1}));
+
+        int valorEsperado = 5;
+        int valorRecebido = a.getY_decimal();
+
+        Assert.assertEquals(valorEsperado, valorRecebido);
+    }
+
+    @Test
+    public void VerificaFitnessQuandoInformadoGenes(){
+        int x = 0;
+        int y = 0;
+
+        Cromossomo a = new Cromossomo(x,y);
+
+        int valorEsperado = -11;
+        int valorRecebido = a.getFitness();
+
+        Assert.assertEquals(valorEsperado, valorRecebido);
+    }
 }
 
