@@ -29,7 +29,6 @@ public class Cromossomo {
         //Fator de correção do tamanho dos vetores
         int correction;
 
-
         //Insere o X
         if (aux_x.length() > n_bits){
             throw new IllegalArgumentException();
