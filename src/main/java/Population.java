@@ -71,6 +71,47 @@ public class Population {
             }
         }
     }
+
+    public void roletaViciada(Mutation m){
+        this.order();
+
+        ArrayList<Cromossomo> besties = new ArrayList<>(10);
+
+        besties.add(0, this.populacao.get(0));
+        besties.add(1, this.populacao.get(0));
+        besties.add(2, this.populacao.get(0));
+        besties.add(3, this.populacao.get(0));
+        besties.add(4, this.populacao.get(1));
+        besties.add(5, this.populacao.get(1));
+        besties.add(6, this.populacao.get(1));
+        besties.add(7, this.populacao.get(2));
+        besties.add(8, this.populacao.get(2));
+        besties.add(9, this.populacao.get(3));
+
+        int index;
+
+        Cromossomo pai;
+        Cromossomo mae;
+
+        List<Cromossomo> resultMutation;
+
+        int length = this.populacao.size() / 2;
+
+        for (int i = 0; i < length ; i++){
+            index = m.gerador.nextInt(this.populacao.size());
+            pai = besties.get(index);
+
+            index = m.gerador.nextInt(this.populacao.size());
+            mae = besties.get(index);
+
+            resultMutation = m.crossover(pai, mae);
+
+            this.populacao.set(i, resultMutation.get(0));
+            this.populacao.set(i + length, resultMutation.get(1));
+        }
+        this.order();
+    }
+
     public void printar(){
         int x;
         int y;
