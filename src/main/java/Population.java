@@ -123,4 +123,23 @@ public class Population {
             System.out.println(" "+x+"  |  "+y+"  |  "+this.populacao.get(i).toString()+"  |  "+this.populacao.get(i).getFitness());
         }
     }
+
+    public void novaGeracao(Mutation m){
+        updateFitness();
+        this.roletaViciada(m);
+        for (int i = 0; i < this.populacao.size(); i++){
+            if(m.devoMutar()){
+                Cromossomo a = this.populacao.get(i);
+                a.setGenoma(m.doMutation(a.getGenoma()));
+                this.populacao.set(i, a);
+            }
+        }
+        updateFitness();
+    }
+
+    public void updateFitness(){
+        for (int i = 0; i < this.populacao.size(); i++){
+            this.populacao.get(i).updateGenes();
+        }
+    }
 }

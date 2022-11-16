@@ -99,6 +99,8 @@ public class Cromossomo {
         this.y[0] = a[3];
         this.y[1] = a[4];
         this.y[2] = a[5];
+
+        updateFitness();
     }
 
     public int[] getGenoma(){
@@ -118,7 +120,7 @@ public class Cromossomo {
         return (Arrays.toString(this.x).replaceAll("\\[|]|,|\\s", "") + Arrays.toString(this.y).replaceAll("\\[|]|,|\\s", ""));
     }
 
-    private void updateGenes(){
+    public void updateGenes(){
         int count = 0;
         int result = 0;
         for (int i = (this.n_bits -1); i >= 0; i--){
@@ -136,6 +138,8 @@ public class Cromossomo {
         }
 
         this.input[1] = result;
+
+        updateFitness();
     }
 
     private void updateFitness(){
