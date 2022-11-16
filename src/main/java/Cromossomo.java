@@ -65,6 +65,20 @@ public class Cromossomo {
         updateFitness();
     }
 
+    Cromossomo(int[] a){
+        this.input = new int[2];
+
+        this.x = new int[n_bits];
+        this.y = new int[n_bits];
+
+        char[] x_char = new char[n_bits];
+        char[] y_char = new char[n_bits];
+
+        setGenoma(a);
+        updateGenes();
+        updateFitness();
+    }
+
     public int[] getX() {
         return x;
     }
@@ -100,6 +114,7 @@ public class Cromossomo {
         this.y[1] = a[4];
         this.y[2] = a[5];
 
+        updateGenes();
         updateFitness();
     }
 

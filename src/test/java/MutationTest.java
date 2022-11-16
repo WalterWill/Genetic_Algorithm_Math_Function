@@ -58,9 +58,10 @@ public class MutationTest {
         Cromossomo b = new Cromossomo(y, y);
         Mutation m = new Mutation(100);
 
-        List<Cromossomo> objetosRecebidos = m.crossover(a, b);
+        Cromossomo objetoRecebido = m.crossover(a, b);
 
-        System.out.println("A: "+objetosRecebidos.get(0).toString());
-        System.out.println("B: "+objetosRecebidos.get(1).toString());
+        System.out.println("A: "+ a);
+        System.out.println("B: "+ b);
+        System.out.println("CROSSOVER: "+ objetoRecebido);
     }
 }

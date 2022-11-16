@@ -30,8 +30,8 @@ public class Mutation {
         return a;
     }
 
-    public List<Cromossomo> crossover(Cromossomo a, Cromossomo b){
-        List<Cromossomo> result = new ArrayList<>();
+    public Cromossomo crossover(Cromossomo a, Cromossomo b){
+
         int length = a.getGenoma().length;
         int pivo = this.gerador.nextInt(length);
 
@@ -45,11 +45,7 @@ public class Mutation {
             genoma_b[i] = aux;
         }
 
-        a.setGenoma(genoma_a);
-        b.setGenoma(genoma_b);
-
-        result.add(a);
-        result.add(b);
+        Cromossomo result = new Cromossomo(genoma_a);
 
         return result;
     }

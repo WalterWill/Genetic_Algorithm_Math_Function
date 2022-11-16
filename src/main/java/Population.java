@@ -93,9 +93,9 @@ public class Population {
         Cromossomo pai;
         Cromossomo mae;
 
-        List<Cromossomo> resultMutation;
+        Cromossomo resultMutation;
 
-        int length = this.populacao.size() / 2;
+        int length = this.populacao.size();
 
         for (int i = 0; i < length ; i++){
             index = m.gerador.nextInt(this.populacao.size());
@@ -106,8 +106,7 @@ public class Population {
 
             resultMutation = m.crossover(pai, mae);
 
-            this.populacao.set(i, resultMutation.get(0));
-            this.populacao.set(i + length, resultMutation.get(1));
+            this.populacao.set(i, resultMutation);
         }
         this.order();
     }
