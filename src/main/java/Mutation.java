@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Mutation {
@@ -26,5 +28,29 @@ public class Mutation {
         }
 
         return a;
+    }
+
+    public List<Cromossomo> crossover(Cromossomo a, Cromossomo b){
+        List<Cromossomo> result = new ArrayList<>();
+        int length = a.getGenoma().length;
+        int pivo = this.gerador.nextInt(length);
+
+        int[] genoma_a = a.getGenoma();
+        int[] genoma_b = b.getGenoma();
+        int aux;
+
+        for (int i = pivo; i < length; i++){
+            aux = genoma_a[i];
+            genoma_a[i] = genoma_b[i];
+            genoma_b[i] = aux;
+        }
+
+        a.setGenoma(genoma_a);
+        b.setGenoma(genoma_b);
+
+        result.add(a);
+        result.add(b);
+
+        return result;
     }
 }

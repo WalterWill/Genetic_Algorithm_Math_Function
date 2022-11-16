@@ -1,6 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.List;
+
 public class MutationTest {
     @Test
     public void VerificaTaxaQuandoDefinida(){
@@ -45,5 +47,20 @@ public class MutationTest {
         System.out.println("Valor Recebido: "+ c.toString());
 
         Assert.assertNotEquals(valorNaoEsperado, valorRecebido);
+    }
+
+    @Test
+    public void VerificaCrossoverQuandoSolicitado(){
+        int x = 7;
+        int y = 0;
+
+        Cromossomo a = new Cromossomo(x,x);
+        Cromossomo b = new Cromossomo(y, y);
+        Mutation m = new Mutation(100);
+
+        List<Cromossomo> objetosRecebidos = m.crossover(a, b);
+
+        System.out.println("A: "+objetosRecebidos.get(0).toString());
+        System.out.println("B: "+objetosRecebidos.get(1).toString());
     }
 }
