@@ -31,10 +31,16 @@ public class MutationTest {
 
     @Test
     public void VerificaVetorQuandoRealizadoMutacao(){
+        int n_bits = 3;
+
         int x = 7;
         int y = 7;
 
-        Cromossomo c = new Cromossomo(x,y);
+        int[] valores = new int[2];
+        valores[0] = x;
+        valores[1] = y;
+
+        Cromossomo c = new Cromossomo(valores, n_bits);
         Mutation m = new Mutation(100);
 
         int[] valorNaoEsperado = c.getGenoma();
@@ -51,11 +57,17 @@ public class MutationTest {
 
     @Test
     public void VerificaCrossoverQuandoSolicitado(){
+        int n_bits = 3;
+
         int x = 7;
         int y = 0;
 
-        Cromossomo a = new Cromossomo(x,x);
-        Cromossomo b = new Cromossomo(y, y);
+        int[] valores = new int[2];
+        valores[0] = x;
+        valores[1] = y;
+
+        Cromossomo a = new Cromossomo(valores, n_bits);
+        Cromossomo b = new Cromossomo(valores, n_bits);
         Mutation m = new Mutation(100);
 
         Cromossomo objetoRecebido = m.crossover(a, b);

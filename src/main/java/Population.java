@@ -1,25 +1,28 @@
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 import java.util.Random;
 
 public class Population {
     ArrayList<Cromossomo> populacao;
     Random gerador;
 
+    //Contrutor indicando o tamanho da população
     Population(int n){
         this.populacao = new ArrayList<>(n);
         gerador = new Random();
     }
 
+    //Devolve o Arraylist contento a população de Cromossomos
     public ArrayList getPopulacao(){
         return this.populacao;
     }
 
+    //Define a população conforme o Arraylist de cromossomos passados por parametro
     public void setPopulacao(ArrayList a){
         this.populacao = a;
     }
 
+
+    //Define na população o cromossomo indicado pelo index passado por parametro
     public void setCromossomo(int index, Cromossomo a){
         try {
             this.populacao.set(index, a);
@@ -29,16 +32,19 @@ public class Population {
 
     }
 
+
+    //Devolve o cromossomo indicado pelo index
     public Cromossomo getCromossomo(int index){
         return this.populacao.get(index);
     }
 
+    //Ordena de forma Decrescente o Arraylist com base no valor de FITNESS de cada cromossomo
     public void order(){
         boolean outOfOrder = true;
         int length = this.populacao.size() - 1;
 
-        int valor_atual;
-        int valor_proximo;
+        double valor_atual;
+        double valor_proximo;
 
         Cromossomo c_aux;
         Cromossomo c_atual;
@@ -72,6 +78,7 @@ public class Population {
         }
     }
 
+    //Seleciona os 4 melhores da populacão para gerarem uma nova geraçao
     public void roletaViciada(Mutation m){
         this.order();
 
@@ -111,18 +118,20 @@ public class Population {
         this.order();
     }
 
+    //Printa os valores de entrada, os genes e o FITNESS de cada cromossomo da população
     public void printar(){
         int x;
         int y;
 
         System.out.println(" X  |  Y  |  GENOMA  |  FITNESS");
         for (int i = 0; i < this.populacao.size(); i++){
-            x = this.populacao.get(i).getX_decimal();
-            y = this.populacao.get(i).getY_decimal();
+            x = this.populacao.get(i).getValor(0);
+            y = this.populacao.get(i).getValor(1);
             System.out.println(" "+x+"  |  "+y+"  |  "+this.populacao.get(i).toString()+"  |  "+this.populacao.get(i).getFitness());
         }
     }
 
+    //Automação da geração de uma nova população
     public void novaGeracao(Mutation m){
         updateFitness();
         this.roletaViciada(m);
@@ -136,9 +145,10 @@ public class Population {
         updateFitness();
     }
 
+    //Atualiza o fitness de todos os cromossomos da população
     public void updateFitness(){
         for (int i = 0; i < this.populacao.size(); i++){
-            this.populacao.get(i).updateGenes();
+            this.populacao.get(i).updateValores();
         }
     }
 }

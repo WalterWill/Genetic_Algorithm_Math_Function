@@ -3,16 +3,47 @@ import org.junit.Test;
 public class PopulationTest {
     @Test
     public void VerificaStringQuandoSolicitado(){
-        Cromossomo c1 = new Cromossomo(0,7);
-        Cromossomo c2 = new Cromossomo(1,6);
-        Cromossomo c3 = new Cromossomo(2,5);
-        Cromossomo c4 = new Cromossomo(3,4);
-        Cromossomo c5 = new Cromossomo(4,3);
-        Cromossomo c6 = new Cromossomo(5,2);
-        Cromossomo c7 = new Cromossomo(6,1);
-        Cromossomo c8 = new Cromossomo(7,0);
-        Cromossomo c9 = new Cromossomo(0,0);
-        Cromossomo c10 = new Cromossomo(2,3);
+        int[] valores = new int[2];
+
+        valores[0] = 0;
+        valores[1] = 7;
+        Cromossomo c1 = new Cromossomo(valores);
+
+        valores[0] = 1;
+        valores[1] = 6;
+        Cromossomo c2 = new Cromossomo(valores);
+
+        valores[0] = 2;
+        valores[1] = 5;
+        Cromossomo c3 = new Cromossomo(valores);
+
+        valores[0] = 3;
+        valores[1] = 4;
+        Cromossomo c4 = new Cromossomo(valores);
+
+        valores[0] = 4;
+        valores[1] = 3;
+        Cromossomo c5 = new Cromossomo(valores);
+
+        valores[0] = 5;
+        valores[1] = 2;
+        Cromossomo c6 = new Cromossomo(valores);
+
+        valores[0] = 6;
+        valores[1] = 1;
+        Cromossomo c7 = new Cromossomo(valores);
+
+        valores[0] = 7;
+        valores[1] = 0;
+        Cromossomo c8 = new Cromossomo(valores);
+
+        valores[0] = 0;
+        valores[1] = 0;
+        Cromossomo c9 = new Cromossomo(valores);
+
+        valores[0] = 2;
+        valores[1] = 3;
+        Cromossomo c10 = new Cromossomo(valores);
 
         Population p = new Population(10);
 
@@ -36,16 +67,47 @@ public class PopulationTest {
 
     @Test
     public void VerificaCromossomosQuandoGeradoNovaGeracao(){
-        Cromossomo c1 = new Cromossomo(0,7);
-        Cromossomo c2 = new Cromossomo(1,6);
-        Cromossomo c3 = new Cromossomo(2,5);
-        Cromossomo c4 = new Cromossomo(3,4);
-        Cromossomo c5 = new Cromossomo(4,3);
-        Cromossomo c6 = new Cromossomo(5,2);
-        Cromossomo c7 = new Cromossomo(6,1);
-        Cromossomo c8 = new Cromossomo(7,0);
-        Cromossomo c9 = new Cromossomo(0,0);
-        Cromossomo c10 = new Cromossomo(2,3);
+        int[] valores = new int[2];
+
+        valores[0] = 0;
+        valores[1] = 7;
+        Cromossomo c1 = new Cromossomo(valores);
+
+        valores[0] = 1;
+        valores[1] = 6;
+        Cromossomo c2 = new Cromossomo(valores);
+
+        valores[0] = 2;
+        valores[1] = 5;
+        Cromossomo c3 = new Cromossomo(valores);
+
+        valores[0] = 3;
+        valores[1] = 4;
+        Cromossomo c4 = new Cromossomo(valores);
+
+        valores[0] = 4;
+        valores[1] = 3;
+        Cromossomo c5 = new Cromossomo(valores);
+
+        valores[0] = 5;
+        valores[1] = 2;
+        Cromossomo c6 = new Cromossomo(valores);
+
+        valores[0] = 6;
+        valores[1] = 1;
+        Cromossomo c7 = new Cromossomo(valores);
+
+        valores[0] = 7;
+        valores[1] = 0;
+        Cromossomo c8 = new Cromossomo(valores);
+
+        valores[0] = 0;
+        valores[1] = 0;
+        Cromossomo c9 = new Cromossomo(valores);
+
+        valores[0] = 2;
+        valores[1] = 3;
+        Cromossomo c10 = new Cromossomo(valores);
 
         Population p = new Population(10);
 
