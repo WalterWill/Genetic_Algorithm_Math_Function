@@ -6,6 +6,7 @@ public class Main {
         int n_geracoes = 10;
         int n_valores = 2;
         int valor_maximo = 8;
+        int n_bits = 3;
 
 
         Mutation m = new Mutation(taxa_mutacao);
@@ -17,7 +18,7 @@ public class Main {
                 valores[index] = m.gerador.nextInt(valor_maximo);
             }
 
-            Cromossomo a = new Cromossomo(valores);
+            Cromossomo a = new Cromossomo(valores, n_bits);
             p.setCromossomo(i, a);
         }
         System.out.println("CROMOSSOMOS GERADOS");

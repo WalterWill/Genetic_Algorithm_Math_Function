@@ -49,8 +49,13 @@ public class Mutation {
             genoma_a[i] = genoma_b[i];
             genoma_b[i] = aux;
         }
+        int[] aux_valores = new int[a.valores.length];
+        for (int i = 0; i < aux_valores.length; i++){
+            aux_valores[i] = 0;
+        }
 
-        Cromossomo result = new Cromossomo(genoma_a, a.n_bits);
+        Cromossomo result = new Cromossomo(aux_valores, a.n_bits);
+        result.setGenoma(genoma_a);
 
         return result;
     }
