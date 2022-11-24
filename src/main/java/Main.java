@@ -1,12 +1,12 @@
 public class Main {
 
     public static void main(String[] args) {
-        int taxa_mutacao = 16;
+        int taxa_mutacao = 20;
         int tam_populacao = 10;
-        int n_geracoes = 10;
-        int n_valores = 2;
-        int valor_maximo = 8;
-        int n_bits = 3;
+        int n_geracoes = 1000;
+        int n_valores = 4;
+        int n_bits = 10;
+        int valor_maximo = (int) Math.pow(2, n_bits);
 
 
         Mutation m = new Mutation(taxa_mutacao);

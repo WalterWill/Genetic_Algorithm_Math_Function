@@ -170,13 +170,13 @@ public class Cromossomo {
         double parcialY = Double.valueOf(this.valores[1]);
         parcialY = Math.pow(parcialY, 2);
 
-        //double parcialW = this.valores[2];
+        double parcialW = this.valores[2];
 
-        //double parcialZ = this.valores[3];
-        //parcialZ = Math.pow(parcialY, 3);
+        double parcialZ = this.valores[3];
+        parcialZ = Math.pow(parcialY, 3);
 
-        //double parcial_result = parcialX + parcialY + parcialW + parcialZ;
-        double parcial_result = parcialX + parcialY;
+        double parcial_result = parcialX + parcialY + parcialW + parcialZ;
+        //double parcial_result = parcialX + parcialY;
         parcial_result = target - parcial_result;
 
         if (parcial_result < Double.valueOf(0)){

@@ -57,7 +57,7 @@ public class Population {
             for (int i = 0; i < length; i++){
                 valor_atual = this.populacao.get(i).getFitness();
                 valor_proximo = this.populacao.get((i + 1)).getFitness();
-                if (valor_atual < valor_proximo){
+                if (valor_atual > valor_proximo){       //Define se é CRESCENTE ou DESCRESCENTE
                     c_atual = this.populacao.get(i);
                     c_proximo = this.populacao.get((i + 1));
 
@@ -82,18 +82,30 @@ public class Population {
     public void roletaViciada(Mutation m){
         this.order();
 
-        ArrayList<Cromossomo> besties = new ArrayList<>(10);
+        ArrayList<Cromossomo> besties = new ArrayList<>(this.populacao.size());
 
-        besties.add(0, this.populacao.get(0));
-        besties.add(1, this.populacao.get(0));
-        besties.add(2, this.populacao.get(0));
-        besties.add(3, this.populacao.get(0));
-        besties.add(4, this.populacao.get(1));
-        besties.add(5, this.populacao.get(1));
-        besties.add(6, this.populacao.get(1));
-        besties.add(7, this.populacao.get(2));
-        besties.add(8, this.populacao.get(2));
-        besties.add(9, this.populacao.get(3));
+        double percent_Primeiro = 0.4;
+        double percent_Segundo = 0.3;
+        double percent_Terceiro = 0.2;
+        double percent_Quarto = 0.1;
+
+        int index_Primeiro = (int) (this.populacao.size() * percent_Primeiro);
+        int index_Segundo = (int) (this.populacao.size() * percent_Segundo) + index_Primeiro;
+        int index_Terceiro = (int) (this.populacao.size() * percent_Terceiro) + index_Segundo;
+        int index_Quarto = (int) (this.populacao.size() * percent_Quarto) + index_Terceiro;
+
+        for (int i = 0; i < index_Primeiro; i++){
+            besties.add(i, this.populacao.get(0));
+        }
+        for (int i = index_Primeiro; i < index_Segundo; i++){
+            besties.add(i, this.populacao.get(1));
+        }
+        for (int i = index_Segundo; i < index_Terceiro; i++){
+            besties.add(i, this.populacao.get(2));
+        }
+        for (int i = index_Terceiro; i < index_Quarto; i++){
+            besties.add(i, this.populacao.get(3));
+        }
 
         int index;
 
@@ -122,12 +134,16 @@ public class Population {
     public void printar(){
         int x;
         int y;
+        int w;
+        int z;
 
-        System.out.println(" X  |  Y  |  GENOMA  |  FITNESS");
+        System.out.println(" X  |  Y  |  W  |  Z  |  GENOMA  |  FITNESS");
         for (int i = 0; i < this.populacao.size(); i++){
             x = this.populacao.get(i).getValor(0);
             y = this.populacao.get(i).getValor(1);
-            System.out.println(" "+x+"  |  "+y+"  |  "+this.populacao.get(i).toString()+"  |  "+this.populacao.get(i).getFitness());
+            w = this.populacao.get(i).getValor(2);
+            z = this.populacao.get(i).getValor(3);
+            System.out.println(" "+x+"  |  "+y+"  |  "+w+"  |  "+z+"  |  "+this.populacao.get(i).toString()+"  |  "+this.populacao.get(i).getFitness());
         }
     }
 
